@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила | ЕDNA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #e94560, #533483);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .warning-banner {
+            background: rgba(244, 67, 54, 0.2);
+            border: 2px solid #f44336;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .warning-title {
+            font-size: 1.5rem;
+            color: #f44336;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .warning-title i {
+            font-size: 1.8rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+        
+        .rule-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #e94560;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .rule-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .rule-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: #e94560;
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .rule-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        
+        .rule-description {
+            margin-bottom: 10px;
+            padding-left: 50px;
+        }
+        
+        .ban-notice {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(244, 67, 54, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        .nsfw-warning {
+            background: rgba(233, 69, 96, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #e94560;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-style: italic;
+            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+            
+            .rule-item {
+                padding: 20px;
+            }
+            
+            .rule-description {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> На главную
+            </a>
+            <h1 class="page-title">Правила</h1>
+            
+            <div class="warning-banner">
+                <h2 class="warning-title">
+                    <i class="fas fa-exclamation-triangle"></i> Внимание!
+                </h2>
+                <p>Нарушение этих правил приведёт к отказу в заказе или бану</p>
+            </div>
+        </div>
+        
+        <ul class="rules-list">
+            <li class="rule-item">
+                <h3 class="rule-title">
+                    <span class="rule-number">1</span> Нарушение правил в соцсетях
+                </h3>
+                <p class="rule-description">Вы нарушали базовые правила в приложенных соцсетях.</p>
+            </li>
+            
+            <li class="rule-item">
+                <h3 class="rule-title">
+                    <span class="rule-number">2</span> Запрещённые NSFW темы
+                </h3>
+                <div class="nsfw-warning">
+                    <p><strong>В рамках NSFW запрещено просить нарисовать:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Детей</li>
+                        <li>Подростков</li>
+                        <li>Реальных людей (даже если это знакомые/друзья и есть их "разрешение")</li>
+                        <li>Животных</li>
+                    </ul>
+                </div>
+                <p class="rule-description">
+                    <span class="ban-notice">
+                        <i class="fas fa-ban"></i> Вы будете забанены
+                    </span>
+                </p>
+            </li>
+            
+            <li class="rule-item">
+                <h3 class="rule-title">
+                    <span class="rule-number">3</span> Несоответствие стилю и навыкам
+                </h3>
+                <p class="rule-description">Описание заказа не соответствует скиллу/стилистике.</p>
+                <p class="rule-description" style="font-style: italic; opacity: 0.9;">
+                    Пожалуйста, ознакомьтесь с доступными работами в приложенных соцсетях.
+                </p>
+            </li>
+            
+            <li class="rule-item">
+                <h3 class="rule-title">
+                    <span class="rule-number">4</span> Неоплата заказа
+                </h3>
+                <p class="rule-description">Вы не оплатили заказ или воспользовались этапами работы после неуплаты/возврата оплаты.</p>
+                <p class="rule-description">
+                    <span class="ban-notice">
+                        <i class="fas fa-ban"></i> Вы будете забанены
+                    </span>
+                </p>
+            </li>
+            
+            <li class="rule-item">
+                <h3 class="rule-title">
+                    <span class="rule-number">5</span> Обводка чужих работ
+                </h3>
+                <p class="rule-description">Вы просите обвести поверх чужой скетч/арт или референс.</p>
+                <div class="nsfw-warning">
+                    <p><strong>Если вы художник и заметили, что ваш скетч/арт использовали без вашего разрешения, напишите об этом в лс ТГ или ВК.</strong></p>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="footer-note">
+            <p>[*В зависимости от ситуаций правила сообщества могут пополняться. Если вы видите странное правило, значит оно тут не просто так]</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="guide.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Памятка для заказчика
+            </a>
+            <a href="commissions.html" class="nav-btn">
+                Коммишены <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>Сделано с ❤️ | ЕDNA</p>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем анимацию появления правил при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.rule-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+        
+        // Добавляем небольшую задержку для последовательного появления
+        document.querySelectorAll('.rule-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
