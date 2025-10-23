@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Памятка для заказчика | ЕDNA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #e94560, #533483);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .page-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            gap: 15px;
+            font-size: 1.3rem;
+            color: #e94560;
+        }
+        
+        .divider-line {
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #e94560;
+        }
+        
+        .section-title i {
+            font-size: 1.6rem;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e94560;
+        }
+        
+        .info-card h3 {
+            margin-bottom: 15px;
+            color: #e94560;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .rules-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .rules-list li:before {
+            content: "•";
+            color: #e94560;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .highlight {
+            background: rgba(233, 69, 96, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #e94560;
+        }
+        
+        .stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #e94560;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .update-notice {
+            text-align: center;
+            font-style: italic;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> На главную
+            </a>
+            <h1 class="page-title">Памятка для заказчика</h1>
+            <p class="page-subtitle">Это вспомогательная памятка. Она поможет примерно сориентироваться для составления описания.</p>
+        </div>
+        
+        <div class="highlight">
+            <p><strong>Рекомендуется дополнительно ознакомиться с прайс-листом.</strong></p>
+        </div>
+        
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div>★ Этап 1. Задумка ★</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i> Формулировка идеи
+            </h2>
+            <div class="info-card">
+                <h3><span class="stage-number">1</span> Основные рекомендации</h3>
+                <ul class="rules-list">
+                    <li>Сформулируйте свою задумку так, чтобы её можно было описать словами</li>
+                    <li>Постарайтесь использовать простые, последовательные и доступные описания</li>
+                    <li>Вы можете дополнительно использовать вспомогательные изображения (референсы) в качестве примера</li>
+                    <li>Можно даже набросать своё примерное виденье (в пеинте, на листочке и т.д.)</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="stage-number">2</span> Детализация</h3>
+                <ul class="rules-list">
+                    <li>Укажите нужную позу, расположение персонажа, общую атмосферу арта</li>
+                    <li>Если у вас есть дополнительные пожелания (пример: предмет в руке, выражение лица, украшения и т.п.), укажите их</li>
+                    <li>Убедитесь, что вы ничего не упустили. Перечитайте своё описание и перепроверьте референсы</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div>★ Этап 2. Персонаж ★</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i> Описание персонажа
+            </h2>
+            <div class="info-card">
+                <h3><span class="stage-number">1</span> Общее описание</h3>
+                <ul class="rules-list">
+                    <li>Если у вас есть предпочитаемый персонаж, опишите его так же подробно и доступно</li>
+                    <li>При надобности используйте референсы</li>
+                    <li>Если у вас имеются полноценные референс-листы и арты с персонажем, используйте их</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="stage-number">2</span> Персонажи из игр</h3>
+                <ul class="rules-list">
+                    <li>Если персонаж из игры, назовите его имя и название самой игры</li>
+                    <li>Будет ещё лучше, если вы отправите подробные скриншоты с деталями персонажа</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div>★ Этап 3. Правки ★</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-edit"></i> Процесс внесения правок
+            </h2>
+            <div class="highlight">
+                <p>Подробная информация о правках также доступна в разделе <strong>"Коммишены"</strong></p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="stage-number">1</span> Основные правила</h3>
+                <ul class="rules-list">
+                    <li>Пишите правки по пунктам. <strong>Один пункт — одна правка</strong></li>
+                    <li>Пожалуйста, формируйте более чёткое описание на этапе задумки</li>
+                    <li>На этапе скетча и лайна допустимое количество бесплатных правок — <strong>10 раз</strong></li>
+                    <li>Если бесплатные правки были исчерпаны, дальше они идут платно вне зависимости от этапа работы</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="stage-number">2</span> Ограничения по этапам</h3>
+                <ul class="rules-list">
+                    <li>На этапе покраса и рендера правки, меняющие весь концепт работы, <strong>не принимаются</strong></li>
+                    <li>Если нужно поправить конкретную деталь, такая правка является договорной и платной</li>
+                    <li>Если на арт не соответствует изначальному описанию или референсу, прикрепите пример/сообщение и упомяните об этом. Такая правка бесплатная</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="update-notice">
+            <p>Памятка будет обновляться.</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="commissions.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Коммишены
+            </a>
+            <a href="rules.html" class="nav-btn">
+                Правила <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>Сделано с ❤️ | ЕDNA</p>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем плавную прокрутку для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Добавляем анимацию появления секций при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
