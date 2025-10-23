@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коммишены | ЕDNA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #e94560, #533483);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+            font-size: 1.2rem;
+            color: #e94560;
+        }
+        
+        .divider-line {
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e94560;
+        }
+        
+        .section-title i {
+            font-size: 1.5rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 3px solid #e94560;
+        }
+        
+        .info-card h3 {
+            margin-bottom: 10px;
+            color: #e94560;
+        }
+        
+        .price-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .price-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .price-item:hover {
+            background: rgba(233, 69, 96, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .price-type {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #e94560;
+        }
+        
+        .price-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+        }
+        
+        .rules-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .rules-list li:before {
+            content: "•";
+            color: #e94560;
+            position: absolute;
+            left: 0;
+        }
+        
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .do-section, .dont-section {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .do-section {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 3px solid #4CAF50;
+        }
+        
+        .dont-section {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 3px solid #f44336;
+        }
+        
+        .do-section h3, .dont-section h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .do-section h3 {
+            color: #4CAF50;
+        }
+        
+        .dont-section h3 {
+            color: #f44336;
+        }
+        
+        .highlight {
+            background: rgba(233, 69, 96, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #e94560;
+        }
+        
+        .donate-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(233, 69, 96, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .donate-link:hover {
+            background: rgba(233, 69, 96, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .info-grid, .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> На главную
+            </a>
+            <h1 class="page-title">Коммишены</h1>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-info-circle"></i> Общая информация
+            </h2>
+            <p>Заказы принимаются по <strong>3 слота</strong> в порядке очереди.</p>
+            <p>Информацию об очереди можно спросить <strong>в сообщениях ТГ канала</strong> или в <strong>сообществе ВК</strong>.</p>
+            
+            <div class="highlight">
+                <p><strong>★ Дедлайн: месяц ★</strong></p>
+                <p>Обозначение дедлайна идёт <strong>только после обсуждения очереди</strong> и прямого уведомления о начале работы.</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Оплата</h3>
+                    <p>★ Оплата через <strong>СБП</strong> или <strong>Бусти</strong>‼</p>
+                    <p>★ Только с <strong>предоплатой (50%</strong> от всего заказа). Остальная половина оплаты после скетча‼</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Чаевые</h3>
+                    <p>Чаевые принимаются. Вы можете дополнить чаевые к заказу.</p>
+                    <p>Если вы ошиблись суммой — обязательно уведомите!!</p>
+                    <a href="https://boosty.to/edna/donate" class="donate-link" target="_blank">
+                        <i class="fas fa-heart"></i> Донат
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div>★ ЦЕНЫ ★</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-palette"></i> Лайнарт
+            </h2>
+            <div class="price-list">
+                <div class="price-item">
+                    <div class="price-type">Хэд</div>
+                    <div class="price-value">2000р.</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-type">Халф</div>
+                    <div class="price-value">2500р.</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-type">Фулл</div>
+                    <div class="price-value">3100р.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-fill-drip"></i> Полноценный покрас
+            </h2>
+            <div class="price-list">
+                <div class="price-item">
+                    <div class="price-type">Хэд</div>
+                    <div class="price-value">3500р.</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-type">Халф</div>
+                    <div class="price-value">4300р.</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-type">Фулл</div>
+                    <div class="price-value">5200р.</div>
+                </div>
+            </div>
+            <p class="highlight">За дополнительного персонажа — 100% оплата, как и за первого.</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-mountain"></i> Фон
+            </h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Цена</h3>
+                    <p><strong>★ Цена договорная ★</strong></p>
+                    <p>Зависит от сложности и детальности фона.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Проработка фона</h3>
+                    <ul class="rules-list">
+                        <li>Заливка цветом/градиент — бесплатно</li>
+                        <li>Минимальная — от 0 до 500р.</li>
+                        <li>Высокая — от 500р. до 1000р.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div>★ ПРАВКИ ★</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <div class="section">
+            <p>Пожалуйста, формируйте более чёткое описание на этапе задумки.</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Бесплатные правки</h3>
+                    <p>На этапе скетча и лайна допустимое количество бесплатных правок — <strong>10 раз</strong>.</p>
+                    <p>Пишите правки по пунктам. <strong>Один пункт — одна правка</strong>.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Платные правки</h3>
+                    <p>Если бесплатные правки были исчерпаны, дальше они идут платно вне зависимости от этапа работы.</p>
+                    <p>Если нужно вписать в работу конкретную деталь, которой не было в изначальном описании, такая правка является договорной и платной.</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p>На этапе покраса и рендера правки, меняющие весь концепт работы, не принимаются.</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Правки по соответствию</h3>
+                    <p>Если на арт не соответствует изначальному описанию или референсу, прикрепите пример/сообщение и упомяните об этом. Такая правка бесплатная.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Сводка по правкам</h3>
+                    <ul class="rules-list">
+                        <li>Количество бесплатных правок — 10 раз</li>
+                        <li>Правка по соответствию референсу — бесплатно</li>
+                        <li>Договорная правка — от 50р. до 300р.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div>★ ТЕМАТИКИ ★</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <div class="section">
+            <div class="do-dont-grid">
+                <div class="do-section">
+                    <h3><i class="fas fa-check-circle"></i> Рисую</h3>
+                    <ul class="rules-list">
+                        <li>Людей</li>
+                        <li>Лёгкое NSFW</li>
+                    </ul>
+                </div>
+                
+                <div class="dont-section">
+                    <h3><i class="fas fa-times-circle"></i> Не рисую</h3>
+                    <ul class="rules-list">
+                        <li>Фурри</li>
+                        <li>Полноценное NSFW</li>
+                        <li>Экстремальные фетиши</li>
+                        <li>Обводка поверх чужих артов, скетчей и референсов</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>В рамках NSFW запрещено просить нарисовать:</strong> детей, подростков, реальных людей (даже если это знакомые/друзья и есть их "разрешение"), животных. <strong>Вы будете забанены.</strong></p>
+            </div>
+            
+            <p>Если описание заказа будет выходить за рамки моих навыков или есть темы, которые кажутся спорными — я скажу об этом и по возможности внесу в этот список.</p>
+        </div>
+        
+        <div class="footer">
+            <p>Сделано с ❤️ | ЕDNA</p>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем плавную прокрутку для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Добавляем анимацию появления секций при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
